@@ -37,10 +37,10 @@ override.tf.json
 terraform.rc
 
 # Generated files by hugo
-/public/*
-/resources/_gen/
-/assets/jsconfig.json
-hugo_stats.json
+/hugo/public/*
+/hugo/resources/_gen/
+/hugo/assets/jsconfig.json
+/hugo/hugo_stats.json
 
 # Executable may be added to repository
 hugo.exe
@@ -48,4 +48,5 @@ hugo.darwin
 hugo.linux
 
 # Temporary lock file while building
+/hugo/.hugo_build.lock
 /.hugo_build.lock
