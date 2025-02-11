@@ -29,21 +29,21 @@ jobs:
           submodules: true
           fetch-depth: 0
 
-      # - uses: actions/cache@v4
-      #   with:
-      #     path: ${{ env.HUGO_CACHEDIR }} # <- Use the same env variable just right here
-      #     key: ${{ runner.os }}-hugomod-${{ hashFiles('**/go.sum') }}
-      #     restore-keys: |
-      #       ${{ runner.os }}-hugomod-
+      - uses: actions/cache@v4
+        with:
+          path: ${{ env.HUGO_CACHEDIR }} # <- Use the same env variable just right here
+          key: ${{ runner.os }}-hugomod-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-hugomod-
 
-      # - name: Setup Hugo
-      #   uses: peaceiris/actions-hugo@v3
-      #   with:
-      #     hugo-version: "latest"
-      #     extended: true
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: "latest"
+          extended: true
 
-      # - name: Build
-      # run: hugo --minify
+      - name: Build
+        run: hugo --minify
 
       - name: Deploy
         id: Deploy
@@ -55,7 +55,7 @@ jobs:
           app_location: "/hugo" # ${{ env.APP_LOCATION }}
           api_location: ""
           output_location: "public"
-          skip_app_build: false
+          skip_app_build: true
           skip_api_build: true
 
   close_pull_request_job:
