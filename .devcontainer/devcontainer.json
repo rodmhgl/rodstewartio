@@ -29,7 +29,7 @@
         "kaellarkin.hugo-shortcode-syntax",
         // "csstools.postcss",
         "esbenp.prettier-vscode",
-        "tamasfe.even-better-toml",
+        // "tamasfe.even-better-toml",
         "naumovs.color-highlight",
         "GitHub.vscode-pull-request-github",
         "eamodio.gitlens",
