@@ -29,20 +29,20 @@ jobs:
           submodules: true
           fetch-depth: 0
 
-      - uses: actions/cache@v4
-        with:
-          path: ${{ env.HUGO_CACHEDIR }} # <- Use the same env variable just right here
-          key: ${{ runner.os }}-hugomod-${{ hashFiles('**/go.sum') }}
-          restore-keys: |
-            ${{ runner.os }}-hugomod-
+      # - uses: actions/cache@v4
+      #   with:
+      #     path: ${{ env.HUGO_CACHEDIR }} # <- Use the same env variable just right here
+      #     key: ${{ runner.os }}-hugomod-${{ hashFiles('**/go.sum') }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-hugomod-
 
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v3
-        with:
-          hugo-version: "latest"
-          extended: true
+      # - name: Setup Hugo
+      #   uses: peaceiris/actions-hugo@v3
+      #   with:
+      #     hugo-version: "latest"
+      #     extended: true
 
-      - name: Build
+      # - name: Build
         run: hugo --minify
 
       - name: Deploy
@@ -52,9 +52,11 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }} # Get this from the Azure portal for the Static Web App resource
           repo_token: ${{ secrets.GITHUB_TOKEN }} # This is created automatically by GitHub Actions
           action: "upload"
-          app_location: ${{ env.APP_LOCATION }}
-          skip_app_build: true
-          skip_api_build: true
+          app_location: "/" # ${{ env.APP_LOCATION }}
+          api_location: ""
+          output_location: "public"
+          # skip_app_build: true
+          # skip_api_build: true
 
   close_pull_request_job:
     permissions:
