@@ -1,4 +1,6 @@
+title = 'rodstewart.io'
 baseURL = 'https://lab.rodstewart.io/'
 languageCode = 'en-us'
-title = 'rodstewart.io'
-theme = 'diary'
+# theme = 'diary'
+# theme = ["github.com/amazingrise/hugo-theme-diary"]
+theme = ["github.com/theNewDynamic/gohugo-theme-ananke/v2"]
